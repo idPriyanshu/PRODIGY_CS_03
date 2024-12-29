@@ -26,7 +26,7 @@ def password_strength(password):
 
     entropy = calculate_entropy(password)
     strength_levels = ["Very Weak", "Weak", "Moderate", "Strong", "Very Strong"]
-    entropy_thresholds = [0, 28, 35, 59, 127] 
+    entropy_thresholds = [0, 30, 45, 65, 90] 
     for i, threshold in enumerate(entropy_thresholds):
         if entropy < threshold:
             strength = strength_levels[i]
@@ -115,7 +115,7 @@ def plot_chart(entropy):
         chart_frame.pack_propagate(True)
 
     colors = ["red", "orange", "yellow", "lightgreen", "green"]
-    entropy_thresholds = [0, 28, 35, 59, 127]
+    entropy_thresholds = [0, 30, 45, 65, 90]
     strength = sum(entropy >= threshold for threshold in entropy_thresholds)
     color = colors[min(max(1, strength), 5) - 1]
 
